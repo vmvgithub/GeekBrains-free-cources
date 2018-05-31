@@ -1,3 +1,5 @@
+/* Task 3 */
+
 var a = parseInt(process.argv[2]),
     b = parseInt(process.argv[3]);
 
