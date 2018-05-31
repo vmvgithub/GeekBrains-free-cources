@@ -27,10 +27,14 @@ if (a !== 10 && b !== 10) {
 
 function toDec(number, notation) {
 
+
     var result = 0,
 	maxPosition = number.length - 1;
 
     for (var k = 0; k <= maxPosition; k++) {
+	if (digits.indexOf(number[k]) >= notation) {
+	    return '';
+	}
 	result += digits.indexOf(number[k]) * Math.pow(notation, maxPosition - k);
     }
 
@@ -42,6 +46,10 @@ function fromDec(number, notation) {
     var result = [],
 	number = parseInt(number),
 	remainder;
+
+    if (!isFinite(number)) {
+	return '';
+    }
 
     if (number < notation) {
 	return digits[number];
