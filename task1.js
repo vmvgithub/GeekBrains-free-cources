@@ -2,6 +2,10 @@
 
 var digits = ['0', '1','2','3','4','5','6','7','8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
+if (process.argv.length != 5) {
+    process.exit(1);
+}
+
 var i = process.argv[2],
     a = parseInt(process.argv[3]),
     b = parseInt(process.argv[4]);
