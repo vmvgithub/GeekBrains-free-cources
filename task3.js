@@ -1,5 +1,9 @@
 /* Task 3 */
 
+if (process.argv.length != 4) {
+    process.exit(1);
+}
+
 var a = parseInt(process.argv[2]),
     b = parseInt(process.argv[3]);
 
