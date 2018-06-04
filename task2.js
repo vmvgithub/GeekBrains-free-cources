@@ -2,32 +2,31 @@
 
 var str = process.argv[2],
     prefix,
-    template,
-    result,
-    maxPrefix;
+    strLength,
+    maxPrefix = '';
 
 if (str) {
 
-    for(var k = 1; k < str.length; k++) {
+    strLength = str.length;
+
+    for(var k = 1; k < strLength; k++) {
 
 	prefix = str.substr(0, k);
-	template = new RegExp('\\B' + prefix);
-	result = str.match(template);
 
-	if (!result) {
-	    break;
-	}
+	for (var n = 1; n < strLength - k +  1; n++) {
 
-	if (result.index >= 0 ) {
-	    maxPrefix = prefix;
+	    if (prefix === str.substr(n, k)) {
+
+		maxPrefix = prefix;
+
+		break;
+
+	    }
+
 	}
 
     }
 
-    process.stdout.write(maxPrefix);
-
-} else {
-
-    process.stdout.write('');
-
 }
+
+process.stdout.write(maxPrefix);
