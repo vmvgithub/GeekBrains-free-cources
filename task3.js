@@ -1,5 +1,4 @@
 /* Task 3 */
-process.exit();
 
 if (process.argv.length != 4) {
     process.exit(1);
