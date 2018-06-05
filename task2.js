@@ -17,11 +17,12 @@ if (str) {
 
 	for (var n = 1; n < strLength - k + 1; n++) {
 
-	    if (prefix === str.substr(n, k)) {
+	    if (prefix === str.substr(n, k) && prefix !== str.substr(-prefix.length)) {
 
 		maxPrefix = prefix;
 
 		break;
+
 
 	    }
 
