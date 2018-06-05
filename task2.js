@@ -7,13 +7,15 @@ var str = process.argv[2],
 
 if (str) {
 
+    maxPrefix = str;
+
     strLength = str.length;
 
-    for(var k = 1; k < strLength; k++) {
+    for (var k = 1; k < strLength; k++) {
 
 	prefix = str.substr(0, k);
 
-	for (var n = 1; n < strLength - k +  1; n++) {
+	for (var n = 1; n < strLength - k + 1; n++) {
 
 	    if (prefix === str.substr(n, k)) {
 
