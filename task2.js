@@ -1,27 +1,25 @@
 /* Task 2 */
 
 var str = process.argv[2],
-    prefix,
     strLength,
-    maxPrefix = '';
+    subStrs = [],
+    subStr,
+    maxSubStr = '',
+    counter;
 
 if (str) {
 
-    maxPrefix = str;
-
     strLength = str.length;
 
-    for (var k = 1; k < strLength; k++) {
+    for (var i = 0; i < strLength; i++) { 
 
-	prefix = str.substr(0, k);
+	for (var j = i; j < strLength; j++) { 
 
-	for (var n = 1; n < strLength - k + 1; n++) {
+	    subStr = str.substr(i, (j - i) + 1);
 
-	    if (prefix === str.substr(n, k)) {
+	    if (subStrs.indexOf(subStr) === -1) {
 
-		maxPrefix = prefix;
-
-		break;
+		subStrs.push(subStr);
 
 	    }
 
@@ -29,6 +27,30 @@ if (str) {
 
     }
 
+    subStrs.forEach(function(pattern) {
+
+	counter = 0;
+
+	for (var k = 0; k < strLength; k++) {
+
+	    subStr = str.substr(k, pattern.length);
+
+	    if (subStr === pattern) {
+
+		++counter;
+
+	    }
+
+	}
+
+	if (counter > 1 && pattern.length > maxSubStr.length) {
+
+	    maxSubStr = pattern;
+
+	}
+
+    });
+
 }
 
-process.stdout.write(maxPrefix);
+process.stdout.write(maxSubStr);
