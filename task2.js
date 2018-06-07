@@ -22,14 +22,6 @@ if (str) {
 
 	    if (prefix === str.substr(n, k)) {
 
-		++counter;
-
-		if (counter == 1 && prefix === str.substr(-prefix.length)) {
-
-		    continue;
-
-		}
-
 		maxPrefix = prefix;
 
 		break;
