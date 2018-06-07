@@ -3,7 +3,6 @@
 var str = process.argv[2],
     prefix,
     strLength,
-    counter,
     maxPrefix = '';
 
 if (str) {
@@ -15,8 +14,6 @@ if (str) {
     for (var k = 1; k < strLength; k++) {
 
 	prefix = str.substr(0, k);
-
-	counter = 0;
 
 	for (var n = 1; n < strLength - k + 1; n++) {
 
