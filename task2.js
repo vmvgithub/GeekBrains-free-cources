@@ -17,7 +17,7 @@ if (str) {
 
 	    subStr = str.substr(i, (j - i) + 1);
 
-	    if (subStrs.indexOf(subStr) === -1) {
+	    if (subStrs.indexOf(subStr) === -1 && subStr.length > 1) {
 
 		subStrs.push(subStr);
 
@@ -29,23 +29,29 @@ if (str) {
 
     subStrs.forEach(function(pattern) {
 
-	counter = 0;
+	if (pattern.length > maxSubStr.length) {
 
-	for (var k = 0; k < strLength; k++) {
+		counter = 0;
 
-	    subStr = str.substr(k, pattern.length);
+		for (var k = 0; k <= strLength - pattern.length; k++) {
 
-	    if (subStr === pattern) {
+		    subStr = str.substr(k, pattern.length);
 
-		++counter;
+		    if (subStr === pattern) {
 
-	    }
+			++counter;
 
-	}
+			if (counter > 1 && pattern.length > maxSubStr.length) {
 
-	if (counter > 1 && pattern.length > maxSubStr.length) {
+			    maxSubStr = pattern;
 
-	    maxSubStr = pattern;
+			    break;
+
+			}
+
+		    }
+
+		}
 
 	}
 
