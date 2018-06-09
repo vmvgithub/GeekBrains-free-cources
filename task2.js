@@ -17,7 +17,7 @@ if (str) {
 
 	    subStr = str.substr(i, (j - i) + 1);
 
-	    if (subStrs.indexOf(subStr) === -1 && subStr.length > 1) {
+	    if (subStrs.indexOf(subStr) === -1) {
 
 		subStrs.push(subStr);
 
