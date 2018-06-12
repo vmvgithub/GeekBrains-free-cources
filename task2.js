@@ -48,6 +48,13 @@ if (str) {
 
     }
 
+
+    if (maxSubStr.length === 0) {
+
+	maxSubStr = str;
+
+    }
+
 }
 
 process.stdout.write(maxSubStr);
