@@ -48,13 +48,12 @@ if (str) {
 
     }
 
+}
 
-    if (maxSubStr.length === 0) {
+if (maxSubStr.length === 0) {
 
-	maxSubStr = str;
-
-    }
+	maxSubStr = false;
 
 }
 
-process.stdout.write(maxSubStr);
+console.log(maxSubStr);
