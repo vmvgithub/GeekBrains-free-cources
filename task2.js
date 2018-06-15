@@ -1,50 +1,34 @@
 /* Task 2 */
 
-var str = process.argv[2],
+var str = (process.argv[2]) ? process.argv[2] : '',
     strLength,
     subStrs = {},
     subStr,
     maxSubStr = '';
 
-if (str) {
+strLength = str.length;
 
-    strLength = str.length;
+for (var i = 0; i < strLength; i++) {
 
-    for (var i = 0; i < strLength; i++ ) { 
+    for (var j = strLength - 1; j >= i; j--) {
 
-	for (var j = strLength - 1; j >= i; j--) { 
+	subStr = str.substr(i, (j - i) + 1);
 
-	    subStr = str.substr(i, (j - i) + 1);
+	if (subStr in subStrs) {
 
-	    if (/^[a-z]+$/.test(subStr)) {
+		++subStrs[subStr];
 
-		if (subStr.length <= maxSubStr.length) {
+		if (subStrs[subStr] > 1 && subStr.length > maxSubStr.length) {
 
-		    break;
-
-		}
-
-		if (subStr in subStrs) {
-
-		    ++subStrs[subStr];
-
-		    if (subStrs[subStr] > 1 && subStr.length > maxSubStr.length) {
-
-			maxSubStr = subStr;
-
-			break;
-
-		    }
-
-		} else {
-
-		    subStrs[subStr] = 1;
+		    maxSubStr = subStr;
 
 		}
+
+	    } else {
+
+		subStrs[subStr] = 1;
 
 	    }
-
-	}
 
     }
 
