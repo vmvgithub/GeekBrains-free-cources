@@ -50,10 +50,4 @@ if (str) {
 
 }
 
-if (maxSubStr.length === 0) {
-
-	maxSubStr = false;
-
-}
-
-console.log(maxSubStr);
+process.stdout.write(maxSubStr);
