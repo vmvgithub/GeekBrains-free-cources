@@ -1,12 +1,14 @@
 /* Task 2 */
 
-var str = (process.argv[2]) ? process.argv[2] : '',
-    strLength,
+if (process.argv.length != 3) {
+    process.exit(1);
+}
+
+var str = process.argv[2],
+    strLength = str.length,
     subStrs = {},
     subStr,
     maxSubStr = '';
-
-strLength = str.length;
 
 for (var i = 0; i < strLength; i++) {
 
